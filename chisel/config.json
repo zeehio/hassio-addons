@@ -10,13 +10,13 @@
   "options": {
     "ha_host": "hassio.local",
     "ha_port": 8123,
-    "chisel_server": null,
+    "chisel_server": "chisel.example.com",
     "chisel_remote_host": "127.0.0.1",
     "chisel_remote_port": 8123,
     "fingerprint": "00:00:00",
     "chisel_user": "",
     "chisel_password": "",
-    "keepalive": "str",
+    "keepalive": "30s",
     "max-retry-count": 30
   },
   "schema": {
