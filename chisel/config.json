@@ -1,6 +1,6 @@
 {
   "name": "Chisel client",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "slug": "chisel_client",
   "description": "A TCP tunnel over ssh and a websocket to your public server to get remote access to your local home assistant instance",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
@@ -17,7 +17,7 @@
     "chisel_user": "",
     "chisel_password": "",
     "keepalive": "30s",
-    "max-retry-count": 30
+    "max_retry_count": 30
   },
   "schema": {
     "ha_host": "str",
@@ -29,6 +29,6 @@
     "chisel_user": "str",
     "chisel_password": "str",
     "keepalive": "str",
-    "max-retry-count": "int"
+    "max_retry_count": "int"
   }
 }

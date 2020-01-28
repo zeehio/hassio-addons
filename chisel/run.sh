@@ -13,7 +13,7 @@ FINGERPRINT="$(jq --raw-output '.fingerprint' $CONFIG_PATH)"
 CHISEL_USER="$(jq --raw-output '.chisel_user' $CONFIG_PATH)"
 CHISEL_PASSWORD="$(jq --raw-output '.chisel_password' $CONFIG_PATH)"
 KEEPALIVE="$(jq --raw-output '.keepalive' $CONFIG_PATH)"
-MAX_RETRY_COUNT="$(jq --raw-output '.\"max-retry-count\"' $CONFIG_PATH)"
+MAX_RETRY_COUNT="$(jq --raw-output '.max_retry_count' $CONFIG_PATH)"
 
 # FIXME: try to set  hahost to homeassistant and haport to 8123 and then drop host network.
 
