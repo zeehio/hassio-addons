@@ -17,7 +17,7 @@ MAX_RETRY_COUNT="$(jq --raw-output '.max_retry_count' $CONFIG_PATH)"
 
 # FIXME: try to set  hahost to homeassistant and haport to 8123 and then drop host network.
 
-exec chisel client \
+exec /bin/chisel client \
    --fingerprint "${FINGERPRINT}" \
    --auth "${CHISEL_USER}:${CHISEL_PASSWORD}" \
    --keepalive "${KEEPALIVE}" \
