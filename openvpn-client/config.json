@@ -1,0 +1,22 @@
+{
+    "name": "OpenVPN instance",
+    "version": "1.0.0",
+    "slug": "openvpn",
+    "description": "Runs a openvpn instance",
+    "startup": "before",
+    "boot": "auto",
+    "host_network": true,
+    "privileged": ["NET_ADMIN"],
+    "options": {
+      "config": "",
+      "key": "",
+      "user": "",
+      "password": ""
+    },
+    "schema": {
+      "config": "str",
+      "key": "str",
+      "user": "str",
+      "password": "str"
+    }
+  }
