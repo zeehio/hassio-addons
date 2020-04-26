@@ -20,6 +20,9 @@ fi
 
 sysctl net.ipv4.ip_forward
 
+echo "iptables"
+iptables -L
+echo "iptables ends"
 #iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE
 #iptables -A FORWARD -i tun0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 #iptables -A FORWARD -i wlan0 -o tun0 -j ACCEPT
