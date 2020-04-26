@@ -1,3 +1,4 @@
+#!/bin/bash
 mkdir -p /dev/net
 if [ ! -c /dev/net/tun ]; then
     mknod /dev/net/tun c 10 200
@@ -14,4 +15,11 @@ secret_cmd=
 if [ $key_size -ge 2 ]; then
   secret_cmd="--secret /openvpn.key"
 fi
+
+sysctl net.ipv4.ip_forward
+
+#iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE
+#iptables -A FORWARD -i tun0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+#iptables -A FORWARD -i wlan0 -o tun0 -j ACCEPT
+
 openvpn ${secret_cmd} --config /openvpn.conf
