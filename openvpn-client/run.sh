@@ -9,4 +9,9 @@ jq --raw-output '.key' /data/options.json > /openvpn.key
 jq --raw-output '.user' /data/options.json > /user_pass.conf
 jq --raw-output '.password' /data/options.json >> /user_pass.conf
 
-openvpn --secret /openvpn.key --config /openvpn.conf
+key_size=$(wc --bytes < /openvpn.key)
+secret_cmd=
+if [ $key_size -ge 2 ]; then
+  secret_cmd="--secret /openvpn.key"
+fi
+openvpn ${secret_cmd} --config /openvpn.conf
