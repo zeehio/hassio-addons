@@ -12,19 +12,20 @@ jq --raw-output '.key' /data/options.json > /openvpn.key
 jq --raw-output '.user' /data/options.json > /user_pass.conf
 jq --raw-output '.password' /data/options.json >> /user_pass.conf
 
+echo "#!/bin/bash" > /vpn-up.sh
+echo "set -e" >> /vpn-up.sh
+jq --raw-output '.up | join("\n")' /data/options.json >> /vpn-up.sh
+chmod a+x /vpn-up.sh
+
+echo "#!/bin/bash" > /vpn-down.sh
+echo "set -e" >> /vpn-down.sh
+jq --raw-output '.down | join("\n")' /data/options.json >> /vpn-down.sh
+chmod a+x /vpn-down.sh
+
 key_size=$(wc -c < /openvpn.key)
 secret_cmd=
 if [ $key_size -ge 2 ]; then
   secret_cmd="--secret /openvpn.key"
 fi
 
-sysctl net.ipv4.ip_forward
-
-echo "iptables"
-iptables -L
-echo "iptables ends"
-#iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE
-#iptables -A FORWARD -i tun0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
-#iptables -A FORWARD -i wlan0 -o tun0 -j ACCEPT
-
-openvpn ${secret_cmd} --config /openvpn.conf
+openvpn ${secret_cmd} --script-security 2  --config /openvpn.conf

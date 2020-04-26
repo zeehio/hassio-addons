@@ -1,6 +1,6 @@
 {
     "name": "OpenVPN instance",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "slug": "openvpn",
     "description": "Runs a openvpn instance",
     "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
@@ -12,12 +12,20 @@
       "config": [""],
       "key": "",
       "user": "",
-      "password": ""
+      "password": "",
+      "up": [
+        "iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE",
+        "iptables -A FORWARD -i tun0 -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT",
+        "iptables -A FORWARD -i eth0 -o tun0 -j ACCEPT"
+        ],
+      "down": [""]
     },
     "schema": {
       "config": ["str"],
       "key": "str",
       "user": "str",
-      "password": "password"
+      "password": "password",
+      "up": ["str"],
+      "down": ["str"]
     }
   }
