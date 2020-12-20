@@ -16,7 +16,7 @@ RUN if [ "${BUILD_ARCH}" = "armhf" ]; then \
       URL="https://github.com/jpillora/chisel/releases/download/v1.7.3/chisel_1.7.3_linux_386.gz"; \
     else \
       echo "Unsupported build architecture: ${BUILD_ARCH}"; \
-      exit 1;
+      exit 1; \
     fi; \
     curl $URL | gunzip > /usr/local/bin/chisel && \
     chmod +x /usr/local/bin/chisel
