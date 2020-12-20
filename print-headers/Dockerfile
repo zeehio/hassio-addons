@@ -10,5 +10,5 @@ WORKDIR /app/
 COPY app.py /app/
 #COPY uwsgi.ini /app/uwsgi.ini
 
-CMD [ "python", "app.py" ]
+CMD [ "/usr/bin/python", "app.py" ]
 
