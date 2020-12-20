@@ -3,11 +3,7 @@ FROM $BUILD_FROM
 
 ENV LANG C.UTF-8
 
-# Install requirements for add-on
-RUN apk add --no-cache jq \
-    && apk add   --no-cache --virtual .build-deps curl bash \
-    && (curl https://i.jpillora.com/chisel! | bash) \
-    && apk del .build-deps
+RUN (curl https://i.jpillora.com/chisel@v1.7.3! | bash)
 
 # Copy data for add-on
 COPY run.sh /
