@@ -18,7 +18,7 @@ RUN if [ "${BUILD_ARCH}" = "armhf" ]; then \
       echo "Unsupported build architecture: ${BUILD_ARCH}"; \
       exit 1; \
     fi; \
-    curl $URL | gunzip > /usr/local/bin/chisel && \
+    curl -L $URL | gunzip > /usr/local/bin/chisel && \
     chmod +x /usr/local/bin/chisel
 
 # Copy data for add-on
