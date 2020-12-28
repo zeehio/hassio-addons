@@ -19,10 +19,9 @@ def hello_world():
     return response
 
 
-
 if __name__ == '__main__':
     subdir = os.getenv("HOSTNAME").replace("-", "_")  # FIXME: Not sure if that is reliable enough...
-    application = DispatcherMiddleware({
+    application = DispatcherMiddleware(app, {
         '/' + subdir: app
     })
 
