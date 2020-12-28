@@ -22,11 +22,9 @@ def hello_world():
 
 if __name__ == '__main__':
     subdir = os.getenv("HOSTNAME").replace("-", "_")  # FIXME: Not sure if that is reliable enough...
-    application = DispatcherMiddleware(
-        None, {
-            '/' + subdir: app
-        }
-    )
+    application = DispatcherMiddleware({
+        '/' + subdir: app
+    })
 
     run_simple(hostname='0.0.0.0', port=8099, application=application, use_reloader=True)
 
