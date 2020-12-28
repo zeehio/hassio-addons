@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, make_response
-from werkzeug.wsgi import DispatcherMiddleware
+from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from werkzeug.serving import run_simple
 
 app = Flask(__name__)
