@@ -6,7 +6,7 @@ from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from werkzeug.serving import run_simple
 
 app = Flask(__name__)
-
+app.url_map.strict_slashes = False
 @app.route('/')
 def hello_world():
     response = make_response(
