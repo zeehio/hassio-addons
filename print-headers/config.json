@@ -1,6 +1,6 @@
 {
   "name": "Print HTTP headers",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "stage": "experimental",
   "slug": "print_headers",
   "description": "A dummy app to print headers",
