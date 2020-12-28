@@ -28,5 +28,5 @@ if __name__ == '__main__':
         }
     )
 
-    run_simple(host='0.0.0.0', port=8099, application=application, use_reloader=True)
+    run_simple(hostname='0.0.0.0', port=8099, application=application, use_reloader=True)
 
