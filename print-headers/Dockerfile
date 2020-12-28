@@ -5,10 +5,9 @@ ENV LANG C.UTF-8
 
 RUN apk add python3 py3-flask
 
-WORKDIR /app/
 # Copy data for add-on
-COPY app.py /app/
-#COPY uwsgi.ini /app/uwsgi.ini
+COPY rootfs /
+WORKDIR /app/
 
-CMD [ "/usr/bin/python3", "app.py" ]
+CMD [ "/run.sh" ]
 
