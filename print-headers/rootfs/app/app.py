@@ -1,5 +1,7 @@
-
 from flask import Flask, request, jsonify, make_response
+from werkzeug.wsgi import DispatcherMiddleware
+from werkzeug.serving import run_simple
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -14,7 +16,14 @@ def hello_world():
     return response
 
 
+
 if __name__ == '__main__':
-    port = os.getenv("APP_PORT",
-    app.run(debug=True, host='0.0.0.0', port=8099)
+    subdir = os.getenv("HOSTNAME")
+    application = DispatcherMiddleware(
+        None, {
+            '/' + subdir: app
+        }
+    )
+
+    run_simple(host='0.0.0.0', port=8099, application, use_reloader=True)
 
