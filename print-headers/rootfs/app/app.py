@@ -19,7 +19,7 @@ def hello_world():
     return response
 
 if __name__ == '__main__':
-    base_url = os.getenv("INGRESS_ENTRYPOINT")
+    base_url = os.getenv("INGRESS_URL")
     application = DispatcherMiddleware(app, {
         base_url: app
     })
