@@ -20,6 +20,7 @@ jobs:
     - name: Build ${{ matrix.addon }} for ${{ matrix.arch }}
       run: |
             docker run --rm --privileged \
+              -v /var/run/docker.sock:/var/run/docker.sock \
               -v ~/.docker:/root/.docker \
               -v $PWD/${{ matrix.addon }}:/data \
               homeassistant/${{ matrix.arch }}-builder \
