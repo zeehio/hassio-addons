@@ -22,7 +22,7 @@ RUN apk add --no-cache --virtual=build-dependencies \
         su-exec \
         tzdata \
 	py3-setuptools \
-    && python3 -m pip install --upgrade pip \
+    && python3 -m pip install --upgrade pip wheel \
     && python3 -m pip install radicale passlib[bcrypt] \
     && apk del --purge build-dependencies \
     && mkdir -p /data/ /share/radicale/
