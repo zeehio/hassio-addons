@@ -1,0 +1,28 @@
+on: [push, pull_request]
+name: Build Addons
+jobs:
+  builder:
+    name: "Addon builder"
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        arch: ["amd64"]
+        addon: ["radicale"]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Login to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Pull the Docker Image builder
+      run: docker pull homeassistant/${{ arch }}-builder
+    - name: Build ${{ addon }} for ${{ arch }}
+      run: |
+            docker run --rm --privileged \
+              -v ~/.docker:/root/.docker \
+              -v $PWD/${{ addon }}:/data \
+              homeassistant/${{ arch }}-builder \
+              --all \
+              -t /data 
+
