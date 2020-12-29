@@ -16,13 +16,13 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Pull the Docker Image builder
-      run: docker pull homeassistant/${{ arch }}-builder
-    - name: Build ${{ addon }} for ${{ arch }}
+      run: docker pull homeassistant/${{ matrix.arch }}-builder
+    - name: Build ${{ matrix.addon }} for ${{ matrix.arch }}
       run: |
             docker run --rm --privileged \
               -v ~/.docker:/root/.docker \
-              -v $PWD/${{ addon }}:/data \
-              homeassistant/${{ arch }}-builder \
+              -v $PWD/${{ matrix.addon }}:/data \
+              homeassistant/${{ matrix.arch }}-builder \
               --all \
               -t /data 
 
