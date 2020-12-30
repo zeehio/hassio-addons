@@ -1,13 +1,21 @@
-on: [push, pull_request]
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 name: Build Addons
+
 jobs:
-  builder:
+  build-radicale:
     name: "Addon builder"
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        arch: ["amd64"]
-        addon: ["radicale"]
+        addon: ["radicale", "chisel", "print-headers"]
     steps:
     - uses: actions/checkout@v2
     - name: Login to Docker Hub
@@ -16,14 +24,14 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Pull the Docker Image builder
-      run: docker pull homeassistant/${{ matrix.arch }}-builder
-    - name: Build ${{ matrix.addon }} for ${{ matrix.arch }}
+      run: docker pull homeassistant/amd64-builder
+    - name: ${{ matrix.addon }}
       run: |
             docker run --rm --privileged \
               -v /var/run/docker.sock:/var/run/docker.sock \
               -v ~/.docker:/root/.docker \
               -v $PWD/${{ matrix.addon }}:/data \
-              homeassistant/${{ matrix.arch }}-builder \
+              homeassistant/amd64-builder \
               --all \
               -t /data 
 

@@ -2,7 +2,7 @@
     "name": "OpenVPN instance",
     "version": "1.0.7",
     "slug": "openvpn",
-    "description": "Runs a openvpn instance",
+    "description": "Runs an openvpn instance",
     "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
     "startup": "before",
     "boot": "auto",

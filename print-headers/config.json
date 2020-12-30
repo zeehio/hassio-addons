@@ -4,6 +4,7 @@
   "stage": "experimental",
   "slug": "print_headers",
   "description": "A dummy app to print headers",
+  "image": "zeehio/ha-print-headers-{arch}",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "application",
   "boot": "auto",
