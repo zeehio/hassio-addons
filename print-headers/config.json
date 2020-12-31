@@ -1,18 +1,25 @@
 {
   "name": "Print HTTP headers",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "stage": "experimental",
   "slug": "print_headers",
-  "description": "A dummy app to print headers",
   "image": "zeehio/ha-print-headers-{arch}",
-  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
-  "startup": "application",
-  "boot": "auto",
+  "description": "A dummy app to print headers",
+  "url": "https://github.com/zeehio/hassio-addons",
   "webui": "http://[HOST]:[PORT:5000]/",
-  "panel_icon": "mdi:test-tube",
   "ingress": true,
   "ingress_port": 8099,
   "ingress_entry": "/",
+  "startup": "application",
+  "arch": [
+    "aarch64",
+    "amd64",
+    "armhf",
+    "armv7",
+    "i386"
+  ],
+  "boot": "auto",
+  "panel_icon": "mdi:test-tube",
   "hassio_api": false,
   "audio": false,
   "ports": {
@@ -21,6 +28,8 @@
   "ports_description": {
     "5000/tcp": "Print headers"
   },
+  "map": [
+  ],
   "options": {},
   "schema": {}
 }
