@@ -1,11 +1,7 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
-SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
 
-ARG BUILD_ARCH
-ARG BUILD_DATE
-ARG BUILD_REF
-ARG BUILD_VERSION
+ENV LANG C.UTF-8
 
 RUN apk add --no-cache --virtual=build-dependencies \
         gcc \
@@ -14,15 +10,9 @@ RUN apk add --no-cache --virtual=build-dependencies \
         python3-dev \
         py-pip \
     && apk add --no-cache \
-        wget \
-        curl \
-        git \
         python3 \
-        shadow \
-        su-exec \
         tzdata \
-	py3-setuptools \
-    && python3 -m pip install --upgrade pip wheel \
+    && python3 -m pip install --upgrade pip wheel setuptools \
     && python3 -m pip install radicale passlib[bcrypt] \
     && apk del --purge build-dependencies \
     && mkdir -p /data/ /share/radicale/
@@ -30,19 +20,4 @@ RUN apk add --no-cache --virtual=build-dependencies \
 COPY rootfs /
 
 # Labels
-LABEL \
-    io.hass.name="Radicale" \
-    io.hass.description="Radicale is a small but powerful CalDAV (calendars, todo-lists) and CardDAV (contacts) server" \
-    io.hass.arch="${BUILD_ARCH}" \
-    io.hass.type="addon" \
-    io.hass.version=${BUILD_VERSION} \
-    maintainer="Sergio Oller" \
-    org.label-schema.description="Radicale is a small but powerful CalDAV (calendars, todo-lists) and CardDAV (contacts) server" \
-    org.label-schema.build-date=${BUILD_DATE} \
-    org.label-schema.name="Radicale" \
-    org.label-schema.schema-version="1.0" \
-    org.label-schema.url="" \
-    org.label-schema.usage="" \
-    org.label-schema.vcs-ref=${BUILD_REF} \
-    org.label-schema.vcs-url="https://github.com/zeehio/hassio-addons" \
-    org.label-schema.vendor="zeehio addons"
+LABEL maintainer="Sergio Oller"
