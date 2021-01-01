@@ -12,6 +12,8 @@ RUN apk add --no-cache --virtual=build-dependencies \
     && apk add --no-cache \
         python3 \
         tzdata \
+        nginx \
+        gettext \
     && python3 -m pip install --upgrade pip wheel setuptools \
     && python3 -m pip install radicale passlib[bcrypt] \
     && apk del --purge build-dependencies \

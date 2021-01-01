@@ -1,10 +1,8 @@
 [auth]
-type = htpasswd
-htpasswd_filename = /share/radicale/users
-htpasswd_encryption = md5
+type = http_x_remote_user
 
 [server]
-hosts = 0.0.0.0:5232
+hosts = 127.0.0.1:5232
 
 [rights]
 type = authenticated 
