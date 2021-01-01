@@ -22,8 +22,8 @@ RUN if [ "${BUILD_ARCH}" = "armhf" ]; then \
     curl -L $URL | gunzip > /usr/local/bin/chisel && \
     chmod +x /usr/local/bin/chisel
 
-# Copy data for add-on
-COPY run.sh /
-RUN chmod a+x /run.sh
+COPY rootfs /
 
-CMD [ "/run.sh" ]
+# Labels
+LABEL maintainer="Sergio Oller"
+
