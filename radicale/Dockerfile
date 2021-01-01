@@ -17,9 +17,10 @@ RUN apk add --no-cache --virtual=build-dependencies \
         tzdata \
         nginx \
         gettext \
+        py-setuptools \
         py-six \
     && mkdir -p /run/nginx/ \
-    && python3 -m pip install --upgrade pip wheel setuptools \
+    && python3 -m pip install --upgrade pip wheel \
     && python3 -m pip install radicale passlib[bcrypt] \
     && apk del --purge build-dependencies \
     && mkdir -p /data/ /share/radicale/
