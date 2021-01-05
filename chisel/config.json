@@ -1,6 +1,6 @@
 {
   "name": "Chisel client",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "stage": "experimental",
   "slug": "chisel_client",
   "image": "zeehio/ha-chisel-{arch}",
@@ -35,5 +35,5 @@
     "keepalive": "str",
     "max_retry_count": "int"
   },
-  "map": ["share"]
+  "map": ["share:rw"]
 }
