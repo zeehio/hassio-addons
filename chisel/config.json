@@ -35,5 +35,5 @@
     "keepalive": "str",
     "max_retry_count": "int"
   },
-  "map": ["share"],
+  "map": ["share"]
 }
