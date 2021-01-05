@@ -4,8 +4,8 @@ FROM $BUILD_FROM
 ARG BUILD_ARCH
 ENV LANG C.UTF-8
 
-
-RUN if [ "${BUILD_ARCH}" = "armhf" ]; then \
+RUN apk add --no-cache nginx gettext && \
+    if [ "${BUILD_ARCH}" = "armhf" ]; then \
       URL="https://github.com/jpillora/chisel/releases/download/v1.7.3/chisel_1.7.3_linux_armv6.gz"; \
     elif [ "${BUILD_ARCH}" = "armv7" ]; then \
       URL="https://github.com/jpillora/chisel/releases/download/v1.7.3/chisel_1.7.3_linux_armv7.gz"; \

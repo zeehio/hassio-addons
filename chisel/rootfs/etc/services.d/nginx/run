@@ -1,0 +1,14 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Chisel addon
+# ==============================================================================
+declare -a options
+
+bashio::log.info "Starting nginx Service ..."
+
+envsubst '' < /etc/nginx/conf.d/default.template > /etc/nginx/conf.d/default.conf || exit 1
+
+mkdir -p "/share/chisel"
+
+nginx -g 'daemon off;'
+
