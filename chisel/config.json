@@ -1,6 +1,6 @@
 {
   "name": "Chisel client",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "stage": "experimental",
   "slug": "chisel_client",
   "image": "zeehio/ha-chisel-{arch}",
