@@ -1,6 +1,6 @@
 server {
-	listen 8099 default_server;
-	listen [::]:8099 default_server;
+	listen 5233 default_server;
+	listen [::]:5233 default_server;
 
         location = /.ha-auth {
             internal;
@@ -15,7 +15,7 @@ server {
             auth_request     /.ha-auth;
             auth_request_set $auth_status $upstream_status;
             proxy_set_header X-Remote-User $remote_user;
-            proxy_set_header  X-Script-Name /3884e67d_radicale/;
+            proxy_set_header  X-Script-Name /radicale/;
             proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
             proxy_set_header  Host $http_host;
             #proxy_set_header   X-Forwarded-User $http_authorization;

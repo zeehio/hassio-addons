@@ -6,9 +6,11 @@ declare -a options
 
 bashio::log.info "Starting nginx in radicale Addon ..."
 
-export INGRESS_URL=$(bashio::addon.ingress_url)
+envsubst '$SUPERVISOR_TOKEN' < /etc/nginx/conf.d/default.template > /etc/nginx/conf.d/default.conf || exit 1
 
-envsubst '$INGRESS_URL $SUPERVISOR_TOKEN' < /etc/nginx/conf.d/default.template > /etc/nginx/conf.d/default.conf || exit 1
+if [ -d "/share/chisel/nginx/locations/" ]; then
+    envsubst '${HOSTNAME}' < "/etc/chisel/radicale.conf" > "/share/chisel/nginx/locations/radicale.conf" || exit 1
+fi
 
 nginx -g 'daemon off;'
 

@@ -1,6 +1,6 @@
 {
   "name": "Radicale",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "stage": "experimental",
   "slug": "radicale",
   "image": "zeehio/ha-radicale-{arch}",
@@ -8,9 +8,9 @@
   "description": "Radicale is a small but powerful CalDAV (calendars, todo-lists) and CardDAV (contacts) server",
   "url": "https://github.com/zeehio/hassio-addons",
   "auth_api": true,
-  "webui": "http://[HOST]:[PORT:8099]/",
-  "ingress": true,
-  "ingress_port": 8099,
+  "webui": "http://[HOST]:[PORT:5233]/",
+  "ingress": false,
+  "ingress_port": 5233,
   "ingress_entry": "/",
   "startup": "application",
   "arch": [
@@ -23,10 +23,10 @@
   "boot": "auto",
   "audio": false,
   "ports": {
-    "8099/tcp": 8099
+    "5233/tcp": 5233
   },
   "ports_description": {
-    "8099/tcp": "Radicale"
+    "5233/tcp": "Radicale"
   },
   "map": [
     "share:rw"
