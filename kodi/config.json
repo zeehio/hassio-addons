@@ -1,0 +1,33 @@
+{
+  "name": "Kodi",
+  "version": "0.0.1",
+  "stage": "experimental",
+  "slug": "kodi",
+  "image": "zeehio/ha-kodi-{arch}",
+  "description": "Kodi server",
+  "url": "https://github.com/zeehio/hassio-addons",
+  "ingress": false,
+  "startup": "system",
+  "arch": [
+    "aarch64",
+    "amd64",
+    "armhf",
+    "armv7",
+    "i386"
+  ],
+  "boot": "auto",
+  "panel_icon": "mdi:kodi",
+  "audio": true,
+  "video": true,
+  "usb": true,
+  "map": [
+  ],
+  "ports": {
+    "8080/tcp": 8080
+  },
+  "ports_description": {
+    "8080/tcp": "Kodi HTTP API"
+  },
+  "options": {},
+  "schema": {}
+}
