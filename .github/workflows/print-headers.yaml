@@ -2,15 +2,15 @@ on:
   push:
     branches:
       - master
-name: Build Addons
+    paths:
+      - 'print-headers/**'
+
+name: Build print-headers
 
 jobs:
-  build-radicale:
-    name: "Addon builder"
+  build-print-headers:
+    name: "print-headers"
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        addon: ["radicale", "chisel", "print-headers"]
     steps:
     - uses: actions/checkout@v2
     - name: Login to Docker Hub
@@ -20,13 +20,14 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Pull the Docker Image builder
       run: docker pull homeassistant/amd64-builder
-    - name: ${{ matrix.addon }}
+    - name: Build for all archs
       run: |
             docker run --rm --privileged \
               -v /var/run/docker.sock:/var/run/docker.sock \
               -v ~/.docker:/root/.docker \
-              -v $PWD/${{ matrix.addon }}:/data \
+              -v $PWD/print-headers:/data \
               homeassistant/amd64-builder \
               --all \
               -t /data 
+
 
