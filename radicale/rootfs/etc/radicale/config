@@ -8,4 +8,4 @@ hosts = 127.0.0.1:5232
 type = owner_only 
 
 [storage]
-filesystem_folder = /share/radicale/
+filesystem_folder = /data/radicale/

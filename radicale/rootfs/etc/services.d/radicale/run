@@ -6,4 +6,6 @@ declare -a options
 
 bashio::log.info "Starting Radicale ..."
 
+mkdir -p /data/radicale/
+
 radicale --config /etc/radicale/config
