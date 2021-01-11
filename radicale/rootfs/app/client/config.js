@@ -286,7 +286,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 var globalNetworkCheckSettings={
 	href: location.protocol+'//'+location.hostname+
 		(location.port ? ':'+location.port: '')+
-		'/radicale/',
+                (location.port == 5233 ? '/' : '/radicale/'),
 	timeOut: 90000,
 	lockTimeOut: 10000,
 	checkContentType: true,
