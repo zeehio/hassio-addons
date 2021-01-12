@@ -10,8 +10,8 @@ server {
             proxy_set_header        X-Supervisor-Token "${SUPERVISOR_TOKEN}";
         }
 
-        location /radicale/.client {
-            root /app/client/;
+        location /.client {
+            alias /app/client/;
         }
 
         location / {
