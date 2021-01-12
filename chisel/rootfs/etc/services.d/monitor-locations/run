@@ -1,0 +1,6 @@
+#!/bin/bash
+
+inotifywait -e close_write,moved_to,create -m "/share/chisel/nginx/locations/" |
+while read -r directory events filename; do
+  kill -HUP `cat /run/nginx.pid`
+done
