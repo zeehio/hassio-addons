@@ -4,7 +4,7 @@
   "stage": "experimental",
   "slug": "kodi",
   "image": "zeehio/ha-kodi-{arch}",
-  "description": "Kodi server",
+  "description": "Kodi server (not functional)",
   "url": "https://github.com/zeehio/hassio-addons",
   "ingress": false,
   "startup": "system",
