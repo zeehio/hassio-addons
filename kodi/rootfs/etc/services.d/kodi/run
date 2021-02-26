@@ -6,4 +6,4 @@ declare -a options
 
 bashio::log.info "Starting Kodi ..."
 
-kodi-gbm
+/usr/lib/kodi/kodi-gbm
