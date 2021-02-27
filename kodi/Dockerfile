@@ -4,7 +4,7 @@ FROM $BUILD_FROM
 ENV LANG C.UTF-8
 
 RUN apk add --no-cache \
-         kodi-gbm
+         kodi-gbm valgrind
 
 COPY rootfs /
 
