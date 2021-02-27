@@ -8,4 +8,4 @@ bashio::log.info "Starting Kodi ..."
 
 export KODI_HOME=/usr/share/kodi/
 
-/usr/lib/kodi/kodi-gbm --standalone
+valgrind -v /usr/lib/kodi/kodi-gbm --standalone
