@@ -6,4 +6,6 @@ declare -a options
 
 bashio::log.info "Starting Kodi ..."
 
-/usr/lib/kodi/kodi-gbm
+export KODI_HOME=/usr/share/kodi/
+
+/usr/lib/kodi/kodi-gbm --standalone
