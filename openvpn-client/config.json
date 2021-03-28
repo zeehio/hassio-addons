@@ -4,7 +4,7 @@
     "slug": "openvpn",
     "description": "Runs an openvpn instance",
     "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
-    "startup": "before",
+    "startup": "service",
     "boot": "auto",
     "host_network": true,
     "privileged": ["NET_ADMIN"],
