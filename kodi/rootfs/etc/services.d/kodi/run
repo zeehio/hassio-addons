@@ -6,9 +6,18 @@ declare -a options
 
 bashio::log.info "Starting Kodi ..."
 
+mkdir -p  ~/.kodi/userdata || exit 1
+cat << __EOF__ > ~/.kodi/userdata/advancedsettings.xml
+<advancedsettings>
+    <loglevel>2</loglevel>  
+</advancedsettings>
+__EOF__
+
 export KODI_HOME=/usr/share/kodi/
 
 /usr/lib/kodi/kodi-gbm --standalone
+
+tail +1f ~/.kodi/temp/kodi.log 
 
 while true;
  sleep 300
