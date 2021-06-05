@@ -9,6 +9,8 @@ RUN apk add --no-cache \
          kodi \
          kodi-gbm
 
+RUN apk add kmscube --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/
+
 COPY rootfs /
 
 # Default KODI HTTP port
