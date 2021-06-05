@@ -20,6 +20,7 @@
   "devices": ["/dev/dma_heap"],
   "video": true,
   "usb": true,
+  "full_access": true,
   "map": [
   ],
   "ports": {
