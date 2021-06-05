@@ -5,6 +5,7 @@ ENV LANG C.UTF-8
 
 RUN apk add --no-cache \
          mesa \
+         mesa-dri-gallium \
          kodi \
          kodi-gbm
 
