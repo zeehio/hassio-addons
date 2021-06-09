@@ -9,7 +9,7 @@ RUN apk add --no-cache \
          kodi \
          kodi-gbm
 
-RUN apk add libcec-rpi kmscube --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/
+RUN apk add kmscube --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/
 
 COPY rootfs /
 
