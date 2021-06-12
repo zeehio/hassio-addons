@@ -24,10 +24,17 @@ RUN apk add --no-cache \
   doxygen graphviz libtool openjdk8-jre-base \
   swig tar wayland-protocols xz
 
+WORKDIR /build
 
-#pkgver=19.1
-#_realname=Matrix
-#_crossguid_hash="8f399e8bd4"
+RUN wget "https://github.com/xbmc/xbmc/archive/19.1-Matrix.tar.gz" \
+  && wget "https://mirrors.kodi.tv/build-deps/sources/crossguid-8f399e8bd4.tar.gz" \
+  && echo "downloaded"
+
+#	fix-musl-incompability.patch
+#	sse-build.patch
+#	kodi.initd
+#	60-kodi.rules
+#builddir="$srcdir/xbmc-$pkgver-$_realname"
 
 RUN apk add --no-cache alpine-sdk sudo \
   && echo '%wheel ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/wheel
