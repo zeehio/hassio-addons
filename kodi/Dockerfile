@@ -12,8 +12,8 @@ RUN apk add --no-cache \
   libdvdcss-dev libdvdnav-dev libdvdread-dev \
   libjpeg-turbo-dev lzo-dev mesa-dev openssl-dev \
   pcre-dev rapidjson-dev spdlog-dev sqlite-dev \
-  taglib-dev tinyxml-dev zlib-dev libxkbcommon-dev \
-  waylandpp-dev libinput-dev alsa-lib-dev \
+  taglib-dev tinyxml-dev zlib-dev \
+  libinput-dev alsa-lib-dev \
   avahi-dev bluez-dev dav1d-dev dbus-dev \
   eudev-dev libbluray-dev libcap-dev \
   libcec-dev \
