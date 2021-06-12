@@ -34,13 +34,6 @@ RUN echo "extracting sources" \
   && tar xzf 19.1-Matrix.tar.gz \
   && tar xzf crossguid-8f399e8bd4.tar.gz
 
-#crossguid-8f399e8bd4
-#/build/xbmc-19.1-Matrix
-
-#	fix-musl-incompability.patch
-#	sse-build.patch
-#	kodi.initd
-#	60-kodi.rules
 
 COPY aports-kodi/fix-musl-incompability.patch /build/
 COPY aports-kodi/sse-build.patch /build/
@@ -73,7 +66,7 @@ RUN echo "Building binary addons" \
   && make -C tools/depends/target/binary-addons PREFIX=/usr/local \
   && make install
 
-
+RUN find /usr/local
 
 ARG BUILD_FROM
 FROM $BUILD_FROM
@@ -82,11 +75,11 @@ ENV LANG C.UTF-8
 
 RUN apk add --no-cache \
          mesa \
-         mesa-dri-gallium \
-         kodi \
-         kodi-gbm
+         mesa-dri-gallium
 
 RUN apk add kmscube --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/
+
+COPY --from=builder /usr/local /usr/local
 
 COPY rootfs /
 
