@@ -1,3 +1,13 @@
+# Helper image to build kodi
+FROM alpine:edge
+
+RUN apk add --no-cache alpine-sdk
+
+COPY aports-kodi/ /aports-kodi
+WORKDIR /aports-kodi/
+
+RUN abuild package
+
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
