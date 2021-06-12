@@ -1,14 +1,15 @@
 # Helper image to build kodi
 FROM alpine:edge
 
-RUN apk add --no-cache alpine-sdk sudo
+RUN apk add --no-cache alpine-sdk sudo \
+  && echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
 
 COPY aports-kodi/ /aports-kodi
 WORKDIR /aports-kodi/
 
 RUN adduser --disabled-password apkbuilder \
   && addgroup apkbuilder abuild \
-  && addgroup apkbuilder sudo \
+  && addgroup apkbuilder wheel \
   && mkdir -p /var/cache/distfiles \
   && chmod a+w /var/cache/distfiles
 
