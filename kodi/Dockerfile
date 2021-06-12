@@ -11,6 +11,9 @@ RUN adduser --disabled-password apkbuilder \
   && mkdir -p /var/cache/distfiles \
   && chmod a+w /var/cache/distfiles
 
+
+RUN abuild-keygen -a -i
+
 USER apkbuilder
 
 RUN abuild -r
