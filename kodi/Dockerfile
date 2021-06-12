@@ -5,7 +5,7 @@ FROM $BUILD_FROM AS builder
 RUN apk add --no-cache alpine-sdk sudo \
   && echo '%wheel ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/wheel
 
-RUN adduser --disabled-password apkbuilder \
+RUN adduser --disabled-password -h /home/apkbuilder apkbuilder \
   && addgroup apkbuilder abuild \
   && addgroup apkbuilder wheel \
   && mkdir -p /var/cache/distfiles \
@@ -17,13 +17,12 @@ RUN apk update
 COPY aports-kodi/ /aports-kodi
 WORKDIR /aports-kodi/
 RUN chown -R apkbuilder /aports-kodi
-RUN mkdir -p /root/.abuild && chown -R apkbuilder /root/.abuild
 
 USER apkbuilder
 
-RUN abuild-keygen -a -i -n
+RUN HOME=/home/apkbuilder abuild-keygen -a -i -n
 
-RUN abuild -r
+RUN HOME=/home/apkbuilder abuild -r
 
 RUN ls ~/packages
 
