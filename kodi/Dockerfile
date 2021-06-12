@@ -12,15 +12,14 @@ RUN adduser --disabled-password apkbuilder \
 
 RUN apk update
 
-USER apkbuilder
 
 COPY aports-kodi/ /aports-kodi
 WORKDIR /aports-kodi/
+RUN chown -R apkbuilder /aports-kodi
 
+USER apkbuilder
 
 RUN abuild-keygen -a -i -n
-
-RUN chown -R apkbuilder /aports-kodi
 
 RUN abuild -r
 
