@@ -10,6 +10,8 @@ RUN adduser --disabled-password apkbuilder \
   && mkdir -p /var/cache/distfiles \
   && chmod a+w /var/cache/distfiles
 
+RUN apk update
+
 USER apkbuilder
 
 COPY aports-kodi/ /aports-kodi
