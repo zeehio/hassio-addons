@@ -63,44 +63,11 @@ RUN echo "Building Kodi" \
        -DCMAKE_INSTALL_LIBDIR=lib \
        -DENABLE_INTERNAL_CROSSGUID=ON \
        -DENABLE_TESTING=OFF \
-       -DCROSSGUID_URL="/build/crossguid-8f399e8bd4.tar.gz". \
+       -DCROSSGUID_URL="/build/crossguid-8f399e8bd4.tar.gz" \
        -DCORE_PLATFORM_NAME=gbm \
        -DAPP_RENDER_SYSTEM=gles \
   && make \
   && make install
-
-#builddir="$srcdir/xbmc-$pkgver-$_realname"
-
-RUN apk add --no-cache alpine-sdk sudo \
-  && echo '%wheel ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/wheel
-
-RUN adduser --disabled-password -h /home/apkbuilder apkbuilder \
-  && addgroup apkbuilder abuild \
-  && addgroup apkbuilder wheel \
-  && mkdir -p /var/cache/distfiles \
-  && chmod a+w /var/cache/distfiles \
-  && rm -rf /var/cache/apk \
-  && mkdir -p /var/cache/apk \
-  && ln -s /var/cache/apk /etc/apk/cache
-
-RUN apk update
-
-
-COPY aports-kodi/ /aports-kodi
-WORKDIR /aports-kodi/
-RUN chown -R apkbuilder /aports-kodi
-
-RUN abuild-keygen -a -i -n
-
-USER apkbuilder
-
-RUN HOME=/home/apkbuilder abuild-keygen -a -n
-
-RUN HOME=/home/apkbuilder abuild -r
-
-RUN ls ~/packages
-
-RUN rm /etc/sudoers.d/wheel
 
 
 ARG BUILD_FROM
