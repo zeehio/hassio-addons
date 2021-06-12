@@ -19,9 +19,9 @@ WORKDIR /aports-kodi/
 RUN chown -R apkbuilder /aports-kodi
 RUN mkdir -p /root/.abuild && chmod 777 /root/.abuild
 
-USER apkbuilder
-
 RUN abuild-keygen -a -i -n
+
+USER apkbuilder
 
 RUN abuild -r
 
