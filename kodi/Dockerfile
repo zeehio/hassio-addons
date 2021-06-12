@@ -20,6 +20,8 @@ WORKDIR /aports-kodi/
 
 RUN abuild-keygen -a -i -n
 
+RUN chown -R apkbuilder /aports-kodi
+
 RUN abuild -r
 
 RUN ls ~/packages
