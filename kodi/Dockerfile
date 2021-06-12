@@ -47,8 +47,8 @@ COPY aports-kodi/sse-build.patch /build/
 
 RUN echo "Patching sources" \
   && cd "/build/xbmc-19.1-Matrix" \
-  && patch -p2 < "/build/fix-musl-incompability.patch" \
-  && patch -p2 < "/build/sse-build.patch"
+  && patch -p1 < "/build/fix-musl-incompability.patch" \
+  && patch -p1 < "/build/sse-build.patch"
 
 
 RUN echo "Building Kodi" \
