@@ -10,7 +10,7 @@ RUN adduser --disabled-password -h /home/apkbuilder apkbuilder \
   && addgroup apkbuilder wheel \
   && mkdir -p /var/cache/distfiles \
   && chmod a+w /var/cache/distfiles \
-  && rm -rf /var/cache/apk && \
+  && rm -rf /var/cache/apk \
   && mkdir -p /var/cache/apk
 
 RUN apk update
