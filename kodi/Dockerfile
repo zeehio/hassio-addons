@@ -2,6 +2,29 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM AS builder
 
+RUN apk add --no-cache \
+  build-base curl hicolor-icon-theme \
+  py3-bluez py3-pillow py3-simplejson \
+  python3 xdpyinfo curl-dev ffmpeg-dev \
+  flatbuffers-dev fmt-dev freetype-dev \
+  fribidi-dev fstrcmp-dev giflib-dev glu-dev \
+  gtest-dev libass-dev libcdio-dev libdrm-dev \
+  libdvdcss-dev libdvdnav-dev libdvdread-dev \
+  libjpeg-turbo-dev lzo-dev mesa-dev openssl-dev \
+  pcre-dev rapidjson-dev spdlog-dev sqlite-dev \
+  taglib-dev tinyxml-dev zlib-dev libxkbcommon-dev \
+  waylandpp-dev libinput-dev alsa-lib-dev \
+  avahi-dev bluez-dev dav1d-dev dbus-dev \
+  eudev-dev libbluray-dev libcap-dev \
+  libcec-dev \
+  libmicrohttpd-dev libnfs-dev libplist-dev \
+  libshairport-dev libva-glx-dev libxslt-dev \
+  mariadb-connector-c-dev pulseaudio-dev \
+  python3-dev samba-dev autoconf automake cmake \
+  doxygen graphviz libtool openjdk8-jre-base \
+  swig tar wayland-protocols xz
+
+
 RUN apk add --no-cache alpine-sdk sudo \
   && echo '%wheel ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/wheel
 
