@@ -13,7 +13,9 @@ RUN adduser --disabled-password apkbuilder \
 
 USER apkbuilder
 
-RUN abuild package
+RUN abuild -r
+
+RUN ls ~/packages
 
 
 ARG BUILD_FROM
