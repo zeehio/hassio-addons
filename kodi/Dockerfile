@@ -42,6 +42,14 @@ RUN echo "extracting sources" \
 #	kodi.initd
 #	60-kodi.rules
 
+COPY aports-kodi/fix-musl-incompability.patch /build/
+COPY aports-kodi/sse-build.patch /build/
+
+RUN echo "Patching sources" \
+  && cd "/build/xbmc-19.1-Matrix" \
+  && patch -p1 . < "/build/fix-musl-incompability.patch" \
+  && patch -p1 . < "/build/sse-build.patch"
+
 
 RUN echo "Building Kodi" \
   && export LDFLAGS="$LDFLAGS -Wl,-z,stack-size=1048576" \
