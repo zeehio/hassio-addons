@@ -24,7 +24,7 @@ USER apkbuilder
 
 RUN HOME=/home/apkbuilder abuild-keygen -a -n
 
-RUN HOME=/home/apkbuilder sudo abuild -r
+RUN HOME=/home/apkbuilder abuild -r
 
 RUN ls ~/packages
 
