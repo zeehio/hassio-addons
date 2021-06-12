@@ -34,6 +34,9 @@ RUN tar xzf 19.1-Matrix.tar.gz \
   && tar xzvf crossguid-8f399e8bd4.tar.gz \
   && ls
 
+#crossguid-8f399e8bd4
+#xbmc-19.1-Matrix
+
 #	fix-musl-incompability.patch
 #	sse-build.patch
 #	kodi.initd
