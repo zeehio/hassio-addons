@@ -1,5 +1,6 @@
 # Helper image to build kodi
-FROM alpine:edge
+ARG BUILD_FROM
+FROM $BUILD_FROM AS builder
 
 RUN apk add --no-cache alpine-sdk sudo \
   && echo '%wheel ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/wheel
