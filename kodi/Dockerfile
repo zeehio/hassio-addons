@@ -25,6 +25,10 @@ RUN apk add --no-cache \
   swig tar wayland-protocols xz
 
 
+#pkgver=19.1
+#_realname=Matrix
+#_crossguid_hash="8f399e8bd4"
+
 RUN apk add --no-cache alpine-sdk sudo \
   && echo '%wheel ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/wheel
 
