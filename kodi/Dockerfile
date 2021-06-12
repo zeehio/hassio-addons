@@ -6,7 +6,7 @@ RUN apk add --no-cache alpine-sdk
 COPY aports-kodi/ /aports-kodi
 WORKDIR /aports-kodi/
 
-RUN adduser apkbuilder \
+RUN adduser --disabled-password apkbuilder \
   && addgroup apkbuilder abuild \
   && mkdir -p /var/cache/distfiles \
   && chmod a+w /var/cache/distfiles
