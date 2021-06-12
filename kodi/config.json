@@ -9,10 +9,7 @@
   "ingress": false,
   "startup": "system",
   "arch": [
-    "aarch64",
-    "amd64",
-    "armv7",
-    "i386"
+    "aarch64"
   ],
   "boot": "auto",
   "panel_icon": "mdi:kodi",
