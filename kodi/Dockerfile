@@ -55,11 +55,9 @@ RUN echo "Building Kodi" \
   && export LDFLAGS="$LDFLAGS -Wl,-z,stack-size=1048576" \
   && cd "/build/xbmc-19.1-Matrix" \
   && make -C tools/depends/target/crossguid PREFIX="/opt/kodi" \
-  && mkdir -p "/build/xbmc-19.1-Matrix/build-gbm" \
-  && cd "/build/xbmc-19.1-Matrix/build-gbm" \
   && cmake "/build/xbmc-19.1-Matrix" \
        -DCMAKE_BUILD_TYPE=None \
-       -DCMAKE_INSTALL_PREFIX=/opt/kodi \
+       -DCMAKE_INSTALL_PREFIX=/usr/local \
        -DCMAKE_INSTALL_LIBDIR=lib \
        -DENABLE_INTERNAL_CROSSGUID=ON \
        -DENABLE_TESTING=OFF \
@@ -68,6 +66,13 @@ RUN echo "Building Kodi" \
        -DAPP_RENDER_SYSTEM=gles \
   && make \
   && make install
+
+RUN echo "Building binary addons" \
+  && export LDFLAGS="$LDFLAGS -Wl,-z,stack-size=1048576" \
+  && cd "/build/xbmc-19.1-Matrix" \
+  && make -C tools/depends/target/binary-addons PREFIX=/usr/local \
+  && make install
+
 
 
 ARG BUILD_FROM
