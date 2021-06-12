@@ -8,7 +8,7 @@ WORKDIR /aports-kodi/
 
 RUN adduser apkbuilder \
   && addgroup apkbuilder abuild \
-  && mkdir -p /var/cache/distfiles
+  && mkdir -p /var/cache/distfiles \
   && chmod a+w /var/cache/distfiles
 
 USER apkbuilder
