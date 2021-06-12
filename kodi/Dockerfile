@@ -15,7 +15,7 @@ RUN adduser --disabled-password apkbuilder \
 
 USER apkbuilder
 
-RUN abuild-keygen -a -i -n -S
+RUN abuild-keygen -a -i -n
 
 RUN abuild -r
 
