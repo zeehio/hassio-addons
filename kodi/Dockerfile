@@ -2,7 +2,7 @@
 FROM alpine:edge
 
 RUN apk add --no-cache alpine-sdk sudo \
-  && echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
+  && echo '%wheel ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/wheel
 
 COPY aports-kodi/ /aports-kodi
 WORKDIR /aports-kodi/
@@ -15,11 +15,13 @@ RUN adduser --disabled-password apkbuilder \
 
 USER apkbuilder
 
-RUN abuild-keygen -a -i -n
+RUN abuild-keygen -a -i -n -S
 
 RUN abuild -r
 
 RUN ls ~/packages
+
+RUN rm /etc/sudoers.d/wheel
 
 
 ARG BUILD_FROM
