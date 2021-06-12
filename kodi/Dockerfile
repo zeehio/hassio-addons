@@ -30,8 +30,9 @@ RUN wget "https://github.com/xbmc/xbmc/archive/19.1-Matrix.tar.gz" \
   && wget "https://mirrors.kodi.tv/build-deps/sources/crossguid-8f399e8bd4.tar.gz" \
   && echo "downloaded"
 
-RUN tar xzvf 19.1-Matrix.tar.gz \
-  && tar xzvf crossguid-8f399e8bd4.tar.gz
+RUN tar xzf 19.1-Matrix.tar.gz \
+  && tar xzvf crossguid-8f399e8bd4.tar.gz \
+  ls
 
 #	fix-musl-incompability.patch
 #	sse-build.patch
