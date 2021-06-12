@@ -30,21 +30,25 @@ RUN wget "https://github.com/xbmc/xbmc/archive/19.1-Matrix.tar.gz" \
   && wget "https://mirrors.kodi.tv/build-deps/sources/crossguid-8f399e8bd4.tar.gz" \
   && echo "downloaded"
 
-RUN tar xzf 19.1-Matrix.tar.gz \
+RUN echo "extracting sources" \
+  && tar xzf 19.1-Matrix.tar.gz \
   && tar xzf crossguid-8f399e8bd4.tar.gz
 
 #crossguid-8f399e8bd4
 #/build/xbmc-19.1-Matrix
 
-RUN echo "Building Kodi" \
-  && export LDFLAGS="$LDFLAGS -Wl,-z,stack-size=1048576" \
-  && cd "/build/xbmc-19.1-Matrix" \
-  && make -C tools/depends/target/crossguid PREFIX="$PWD"/usr
-
 #	fix-musl-incompability.patch
 #	sse-build.patch
 #	kodi.initd
 #	60-kodi.rules
+
+
+RUN echo "Building Kodi" \
+  && export LDFLAGS="$LDFLAGS -Wl,-z,stack-size=1048576" \
+  && cd "/build/xbmc-19.1-Matrix" \
+  && make -C tools/depends/target/crossguid PREFIX="/opt/kodi"
+
+
 #builddir="$srcdir/xbmc-$pkgver-$_realname"
 
 RUN apk add --no-cache alpine-sdk sudo \
