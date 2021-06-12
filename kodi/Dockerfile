@@ -17,7 +17,7 @@ USER apkbuilder
 
 RUN abuild-keygen -a -i -n
 
-RUN abuild -r
+RUN apk update && abuild -r
 
 RUN ls ~/packages
 
