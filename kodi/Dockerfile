@@ -17,6 +17,7 @@ RUN apk update
 COPY aports-kodi/ /aports-kodi
 WORKDIR /aports-kodi/
 RUN chown -R apkbuilder /aports-kodi
+RUN mkdir -p /root/.abuild && chmod 777 /root/.abuild
 
 USER apkbuilder
 
