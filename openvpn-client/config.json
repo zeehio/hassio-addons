@@ -1,10 +1,10 @@
 {
     "name": "OpenVPN instance",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "slug": "openvpn",
-    "description": "Runs an openvpn instance",
+    "description": "Runs an openvpn client instance",
     "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
-    "startup": "service",
+    "startup": "services",
     "boot": "auto",
     "host_network": true,
     "privileged": ["NET_ADMIN"],
