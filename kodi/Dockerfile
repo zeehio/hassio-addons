@@ -11,7 +11,8 @@ RUN adduser --disabled-password -h /home/apkbuilder apkbuilder \
   && mkdir -p /var/cache/distfiles \
   && chmod a+w /var/cache/distfiles \
   && rm -rf /var/cache/apk \
-  && mkdir -p /var/cache/apk
+  && mkdir -p /var/cache/apk \
+  && ln -s /var/cache/apk /etc/apk/cache
 
 RUN apk update
 
