@@ -32,7 +32,7 @@ RUN wget "https://github.com/xbmc/xbmc/archive/19.1-Matrix.tar.gz" \
 
 RUN tar xzf 19.1-Matrix.tar.gz \
   && tar xzvf crossguid-8f399e8bd4.tar.gz \
-  ls
+  && ls
 
 #	fix-musl-incompability.patch
 #	sse-build.patch
