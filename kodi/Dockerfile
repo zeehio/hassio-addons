@@ -17,11 +17,11 @@ RUN apk update
 COPY aports-kodi/ /aports-kodi
 WORKDIR /aports-kodi/
 RUN chown -R apkbuilder /aports-kodi
-RUN mkdir -p /root/.abuild && chmod 777 /root/.abuild
-
-RUN abuild-keygen -a -i -n
+RUN mkdir -p /root/.abuild && chown -R apkbuilder /root/.abuild
 
 USER apkbuilder
+
+RUN abuild-keygen -a -i -n
 
 RUN abuild -r
 
