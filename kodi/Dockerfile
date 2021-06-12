@@ -18,9 +18,11 @@ COPY aports-kodi/ /aports-kodi
 WORKDIR /aports-kodi/
 RUN chown -R apkbuilder /aports-kodi
 
+RUN abuild-keygen -a -i -n
+
 USER apkbuilder
 
-RUN HOME=/home/apkbuilder abuild-keygen -a -i -n
+#RUN HOME=/home/apkbuilder abuild-keygen -a -i -n
 
 RUN HOME=/home/apkbuilder abuild -r
 
