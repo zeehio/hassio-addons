@@ -31,11 +31,15 @@ RUN wget "https://github.com/xbmc/xbmc/archive/19.1-Matrix.tar.gz" \
   && echo "downloaded"
 
 RUN tar xzf 19.1-Matrix.tar.gz \
-  && tar xzvf crossguid-8f399e8bd4.tar.gz \
-  && ls
+  && tar xzf crossguid-8f399e8bd4.tar.gz
 
 #crossguid-8f399e8bd4
-#xbmc-19.1-Matrix
+#/build/xbmc-19.1-Matrix
+
+RUN echo "Building Kodi" \
+  && export LDFLAGS="$LDFLAGS -Wl,-z,stack-size=1048576" \
+  && cd "/build/xbmc-19.1-Matrix" \
+  && make -C tools/depends/target/crossguid PREFIX="$PWD"/usr
 
 #	fix-musl-incompability.patch
 #	sse-build.patch
