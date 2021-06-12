@@ -1,20 +1,20 @@
 # Helper image to build kodi
 FROM alpine:edge
 
-RUN apk add --no-cache alpine-sdk
+RUN apk add --no-cache alpine-sdk sudo
 
 COPY aports-kodi/ /aports-kodi
 WORKDIR /aports-kodi/
 
 RUN adduser --disabled-password apkbuilder \
   && addgroup apkbuilder abuild \
+  && addgroup apkbuilder sudo \
   && mkdir -p /var/cache/distfiles \
   && chmod a+w /var/cache/distfiles
 
-
-RUN abuild-keygen -a -i
-
 USER apkbuilder
+
+RUN abuild-keygen -a -i -n
 
 RUN abuild -r
 
