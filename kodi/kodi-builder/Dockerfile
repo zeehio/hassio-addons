@@ -56,6 +56,7 @@ RUN echo "Building Kodi" \
        -DCROSSGUID_URL="/build/crossguid-8f399e8bd4.tar.gz" \
        -DCORE_PLATFORM_NAME=gbm \
        -DAPP_RENDER_SYSTEM=gles \
+       -j$(getconf _NPROCESSORS_ONLN) \
   && make \
   && make install
 
