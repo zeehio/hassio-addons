@@ -18,6 +18,7 @@
   "usb": true,
   "full_access": true,
   "map": [
+    "media"
   ],
   "ports": {
     "8080/tcp": 8080
