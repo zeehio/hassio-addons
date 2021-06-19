@@ -1,9 +1,0 @@
-{
-    "build_from": {
-        "aarch64": "ghcr.io/zeehio/addons-base/base/aarch64:edge",
-        "amd64": "ghcr.io/zeehio/addons-base/base/amd64:edge",
-        "armv7": "ghcr.io/zeehio/addons-base/base/armv7:edge",
-        "i386": "ghcr.io/zeehio/addons-base/base/i386:edge"
-    },
-    "args": {}
-}
