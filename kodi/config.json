@@ -1,6 +1,6 @@
 {
   "name": "Kodi",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "stage": "experimental",
   "slug": "kodi",
   "image": "zeehio/ha-kodi-{arch}",
