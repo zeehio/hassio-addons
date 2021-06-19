@@ -5,6 +5,7 @@ ENV LANG C.UTF-8
 
 RUN apt-get update && apt-get install -y kodi
 
+RUN apt-get update && apt-get install -y samba-common-bin
 COPY rootfs /
 
 # Default KODI HTTP port
