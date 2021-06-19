@@ -9,4 +9,6 @@ bashio::log.info "Starting Kodi ..."
 
 export KODI_DATA="/data/kodi"
 
+mkdir -p "${KODI_DATA}"
+
 kodi --windowing=gbm
