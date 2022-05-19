@@ -12,5 +12,11 @@ if [ -d "/share/chisel/nginx/locations/" ]; then
     envsubst '${HOSTNAME}' < "/etc/chisel/radicale.conf" > "/share/chisel/nginx/locations/radicale.conf" || exit 1
 fi
 
+NGINX_PROXY_CONF_DIR="/share/nginx_proxy"
+
+if [ -d "${NGINX_PROXY_CONF_DIR}" ]; then
+    envsubst '${HOSTNAME}' < "/etc/chisel/radicale.conf" > "${NGINX_PROXY_CONF_DIR}/radicale.conf" || exit 1
+fi
+
 nginx -g 'daemon off;'
 
