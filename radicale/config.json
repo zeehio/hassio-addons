@@ -1,6 +1,6 @@
 {
   "name": "Radicale",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "stage": "experimental",
   "slug": "radicale",
   "image": "zeehio/ha-radicale-{arch}",
