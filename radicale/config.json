@@ -5,6 +5,7 @@
   "slug": "radicale",
   "image": "zeehio/ha-radicale-{arch}",
   "panel_icon": "mdi:calendar",
+  "init": false,
   "description": "Radicale is a small but powerful CalDAV (calendars, todo-lists) and CardDAV (contacts) server",
   "url": "https://github.com/zeehio/hassio-addons",
   "auth_api": true,
