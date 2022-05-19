@@ -67,6 +67,8 @@ if bashio::config.true 'customize.active'; then
     sed -i "s|#include /share/nginx_proxy/.*|include /share/$CUSTOMIZE_SERVERS;|" /etc/nginx.conf
 fi
 
+cat /etc/nginx.conf
+
 # start server
 bashio::log.info "Running nginx..."
 exec nginx -c /etc/nginx.conf < /dev/null
