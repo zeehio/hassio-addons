@@ -23,9 +23,7 @@ RUN apk add --no-cache --virtual=build-dependencies \
     && python3 -m pip install --upgrade pip wheel \
     && python3 -m pip install radicale passlib[bcrypt] \
     && apk del --purge build-dependencies \
-    && mkdir -p /data/ /share/radicale/ \
-    && ln -sf /dev/stdout /var/log/nginx/access.log \
-    && ln -sf /dev/stderr /var/log/nginx/error.log
+    && mkdir -p /data/ /share/radicale/
 
 COPY rootfs /
 
