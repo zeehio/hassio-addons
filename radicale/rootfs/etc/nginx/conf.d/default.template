@@ -3,6 +3,8 @@ error_log stderr;
 server {
 	listen 5233 default_server;
 	listen [::]:5233 default_server;
+        error_log stderr;
+        access_log stderr;
 
         proxy_buffering off;
         location = /.ha-auth {
