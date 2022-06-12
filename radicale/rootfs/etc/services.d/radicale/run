@@ -8,4 +8,4 @@ bashio::log.info "Starting Radicale ..."
 
 mkdir -p /data/radicale/
 
-radicale --config /etc/radicale/config 2>&1
+exec radicale --config /etc/radicale/config 2>&1
