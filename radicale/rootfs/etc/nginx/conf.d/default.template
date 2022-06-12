@@ -1,3 +1,5 @@
+error_log stderr;
+
 server {
 	listen 5233 default_server;
 	listen [::]:5233 default_server;
