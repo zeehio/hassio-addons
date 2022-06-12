@@ -16,5 +16,5 @@ NGINX_PROXY_FILE="/share/nginx_proxy_default_radicale.conf"
 
 envsubst '${HOSTNAME}' < "/etc/chisel/radicale.conf" > "${NGINX_PROXY_FILE}" || exit 1
 
-nginx -g 'daemon off;' 2>&1
+exec nginx -g 'daemon off;' 2>&1
 
