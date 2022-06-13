@@ -1,5 +1,5 @@
 name: OpenVPN instance
-version: 1.0.8
+version: 1.0.9
 slug: openvpn
 description: Runs an openvpn client instance
 arch:
