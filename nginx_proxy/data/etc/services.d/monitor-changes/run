@@ -1,9 +1,0 @@
-#!/usr/bin/with-contenv bashio
-
-NGINX_SERVER_CFG=$(bashio::config 'customize.servers')
-NGINX_SERVER_CFG_DIR=$(dirname ${NGINX_SERVER_CFG})
-
-inotifywait -e close_write,moved_to,create -m "/share/${NGINX_SERVER_CFG_DIR}" |
-while read -r directory events filename; do
-  kill -HUP `cat /var/run/nginx.pid`
-done
