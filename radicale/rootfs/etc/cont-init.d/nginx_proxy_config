@@ -9,7 +9,7 @@ bashio::log.info "Preparing nginx reverse proxy configuration ..."
 
 
 envsubst '${HOSTNAME}' \
-  < "/etc/cont-init.d/nginx_proxy_config/radicale.conf" \
+  < "/etc/nginx_proxy_config/radicale.conf" \
   > "/share/nginx_proxy_default_radicale.conf" \
   || exit 1
 
