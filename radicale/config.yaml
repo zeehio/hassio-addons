@@ -1,5 +1,5 @@
 name: Radicale
-version: 0.0.27
+version: 0.0.28
 stage: experimental
 slug: radicale
 image: zeehio/ha-radicale-{arch}
