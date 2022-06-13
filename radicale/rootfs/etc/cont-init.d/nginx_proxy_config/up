@@ -4,9 +4,12 @@
 # ==============================================================================
 declare -a options
 
-bashio::log.info "Starting nginx in radicale Addon ..."
+bashio::log.info "Preparing nginx reverse proxy configuration ..."
 
-envsubst '$SUPERVISOR_TOKEN' < /etc/nginx/http.d/default.template > /etc/nginx/http.d/default.conf || exit 1
 
-exec nginx -g 'daemon off;' 2>&1
+
+envsubst '${HOSTNAME}' \
+  < "/etc/cont-init.d/nginx_proxy_config/radicale.conf" \
+  > "/share/nginx_proxy_default_radicale.conf" \
+  || exit 1
 
