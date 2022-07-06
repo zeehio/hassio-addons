@@ -11,18 +11,24 @@ according to user preferences
 
 import json
 import logging
+import os
+import shutil
+
 from xml.etree import ElementTree as et
 
 logger = logging.Logger(__name__)
 
 logger.info("Loading options from /data/options.json")
+
 with open("/data/options.json") as fh:
     settings = json.load(fh)
 
 
-
 logger.info("Reading the guisettings.xml file...")
-guisettings_fn = "/data/kodi/guisettings.xml"
+guisettings_fn = "/data/kodi/userdata/guisettings.xml"
+
+if not os.path.exists(guisettings_fn):
+    shutil.copyfile("/etc/services.d/kodi/guisettings.xml", guisettings_fn)
 
 # Read the xml file
 tree = et.parse(guisettings_fn)
