@@ -4,11 +4,14 @@
 # ==============================================================================
 declare -a options
 
-bashio::log.info "Starting Kodi ..."
-
 
 export KODI_DATA="/data/kodi"
-
 mkdir -p "${KODI_DATA}"
+
+
+bashio::log.info "Updating settings..."
+python3 /etc/services.d/kodi/replace-settings.py
+
+bashio::log.info "Starting Kodi ..."
 
 kodi --windowing=gbm
