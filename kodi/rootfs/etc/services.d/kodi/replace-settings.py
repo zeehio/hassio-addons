@@ -36,7 +36,7 @@ tree = et.parse(guisettings_fn)
 logger.info("Updating the kodi settings based on the add-on settings...")
 # Modify the web settings attributes:
 tree.find("./setting[@id='services.webserver']").text = str.lower(str(settings['webserver']))
-tree.find("./setting[@id='services.webserverport']").text = 8080
+tree.find("./setting[@id='services.webserverport']").text = '8080'
 tree.find("./setting[@id='services.webserverauthentication']").text = str.lower(str(settings['webserverauthentication']))
 tree.find("./setting[@id='services.webserverusername']").text = str(settings["webserverusername"])
 tree.find("./setting[@id='services.webserverpassword']").text = str(settings["webserverpassword"])
