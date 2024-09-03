@@ -11,7 +11,7 @@ arch:
   - aarch64
   - amd64
   - i386
-image: homeassistant/{arch}-addon-nginx_proxy
+image: zeehio/ha-nginx_proxy-{arch}
 init: false
 startup: services
 map:
