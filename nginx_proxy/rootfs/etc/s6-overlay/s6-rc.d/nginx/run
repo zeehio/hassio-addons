@@ -53,7 +53,6 @@ port=$(bashio::core.port)
 until curl \
    --output /dev/null \
    --silent \
-   --head \
    --fail \
    "http://homeassistant.local.hass.io:$port";
 do
