@@ -1,0 +1,17 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
+name: GandiDNS
+version: "0.0.3"
+slug: gandi-dns
+description: Update Gandi dns zone
+url: "https://github.com/benlbrm/home-assistant-addons"
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+init: false
+schema:
+  token: str
+  domain: str
+  records: [str]
