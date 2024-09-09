@@ -1,9 +1,10 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: GandiDNS
 version: "0.0.3"
+image: zeehio/ha-gandidns-{arch}
 slug: gandi-dns
 description: Update Gandi dns zone
-url: "https://github.com/benlbrm/home-assistant-addons"
+url: "https://github.com/zeehio/hassio-addons"
 arch:
   - armhf
   - armv7
