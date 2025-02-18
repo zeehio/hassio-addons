@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.11.2
+
+- [zeehio] Set nginx_proxy to start before core, and wait for core
+
+## 3.11.1
+
+- Update to new nginx http2 directive. This also suppress a deprecation warning.
+
+## 3.11.0
+
+- Update Alpine Linux to 3.20 (nginx 1.26.x)
+
 ## 3.10.1
 
 - Make `real_ip_from` optional through an empty default value
