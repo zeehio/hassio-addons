@@ -1,5 +1,5 @@
 name: Radicale
-version: 0.0.31
+version: 0.0.32
 stage: experimental
 slug: radicale
 image: zeehio/ha-radicale-{arch}
@@ -15,10 +15,6 @@ ingress_entry: /
 startup: application
 arch:
   - aarch64
-  - amd64
-  - armhf
-  - armv7
-  - i386
 boot: auto
 audio: false
 ports:
